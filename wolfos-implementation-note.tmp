@@ -1,0 +1,19 @@
+import { Navigate, Route, Routes } from 'react-router'
+import { AppLayout } from '@/components/layout/AppLayout'
+import { Page } from '@/components/layout/Page'
+import { PageTransition } from '@/components/layout/PageTransition'
+import { WolfOS } from '@/screens/wolfos/WolfOS'
+import { HashRouter } from 'react-router'
+
+export function App() {
+  return (
+    <HashRouter>
+      <Routes>
+        <Route element={<AppLayout />}>
+          <Route path="/" element={<WolfOS />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Route>
+      </Routes>
+    </HashRouter>
+  )
+}
